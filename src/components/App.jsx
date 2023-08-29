@@ -1,7 +1,8 @@
 import { Layout } from "./Layout";
 import { GlobalStyle } from "./GlobalStyle";
 import { Component } from "react";
-import { Form } from "./Form";
+//import { PhoneForm } from "./Form";
+import { NewPhoneForm } from "./Form";
 import { ContactList } from "./ContactList";
 
 import { nanoid } from 'nanoid';
@@ -43,7 +44,7 @@ return (
         color: '#010101'
       }}>
     <h1>React homework template</h1>
-    <Form onAddContact={this.addContact} />
+    <NewPhoneForm onAddContact={this.addContact}/>
     <ContactList contacts={this.state.contacts} />
     <GlobalStyle/>
     </Layout>
@@ -53,3 +54,6 @@ return (
   
     
 };
+
+
+/*<PhoneForm onAddContact={this.addContact} /> */

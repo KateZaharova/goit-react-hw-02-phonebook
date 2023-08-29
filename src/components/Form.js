@@ -1,16 +1,45 @@
-import { Input, FrameForm, Button, FormWrapper } from "./Form.styled";
+import { Formik  } from 'formik';  //ErrorMessage
+import { StyledForm, FieldInfo} from "./Form.styled";
 import { Component } from "react";
 
-export class Form extends Component{
+/*import { Input, FrameForm, ButtonA, FormWrapper } from "./Form.styled";*/
+
+
+export const NewPhoneForm = () => {
+    return (
+        <div>
+            <h2>Phonebook!</h2>
+            <Formik
+                initialValues={{
+                    name: '',
+                }}
+                onSubmit={values => {
+                    console.log(values);
+                }}
+            >
+                <StyledForm>
+                    <label>
+                        Name
+                    </label>
+                    <FieldInfo type="text" name="name" placeholder="Name ..."/> 
+                    <button type="submit">Add contact</button>
+                </StyledForm>
+            </Formik>
+        </div>
+    );
+};
+
+
+
+
+/*export class PhoneForm extends Component{
     state = {
         contactName:"",
     }
-
     render() {
         const { onAddContact } = this.props;
-
-        return(
-        <div>
+        return (
+                <FormWrapper>
         <h2>Phonebook</h2>
             <FrameForm>
                 <label >Name</label>
@@ -20,15 +49,29 @@ export class Form extends Component{
                 name="name"
                         onChange={evt => {
                             this.setState(() => ({ contactName: evt.target.value }))
-                        }
-                }
+                        }  }
                 pattern="^[a-zA-Zа-яА-Я]+(([' \\-][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
                 title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
                 required
                 />
-                <Button type="button" onClick={()=>onAddContact(this.state.contactName)}>Add contact</Button>
+                <ButtonA type="button" onClick={()=>onAddContact(this.state.contactName)}>Add contact</ButtonA>
        </FrameForm>
-        </div>
-   ) 
-    }
-}
+        </FormWrapper>   
+   ) } }*/
+
+  
+
+/*
+initialValues={{
+                    name: '',
+                    email: '',
+                    password: ''
+                }}
+
+<Field type="email" name="email" />
+<ErrorMessage name="email" component="div" />
+<Field type="password" name="password" />
+<ErrorMessage name="password" component="div" />
+
+<ErrorMessage name="name" component="div" />
+*/
