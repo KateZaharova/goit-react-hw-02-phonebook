@@ -1,8 +1,8 @@
 
 
 
-export const ContactItem = ({item}) => {
+export const ContactItem = ({ item: { name, phone } }) => {
     return (
-            <li>{item}</li>
+        <>{name }: {phone}</>
     )
 }

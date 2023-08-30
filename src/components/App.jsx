@@ -1,35 +1,29 @@
 import { Layout } from "./Layout";
 import { GlobalStyle } from "./GlobalStyle";
 import { Component } from "react";
-//import { PhoneForm } from "./Form";
 import { NewPhoneForm } from "./Form";
 import { ContactList } from "./ContactList";
-
 import { nanoid } from 'nanoid';
 
 
 export class App extends Component {
   state = {
-    contacts: [{ id: "cat", name:"test1" }],
+    contacts: [],
     filter: "",
   };
 
 
-  addContact = name => {
-    console.log(name);
-
-    if (-1 !== this.state.contacts.findIndex(option => option.name === name)) {
-      alert(`${name} is already in contacts.`);
+  addContact = contact => {
+    
+    if (-1 !== this.state.contacts.findIndex(option => option.name === contact.name)) {
+      alert(`${contact.name} is already in contacts.`);
       return;
     }
     this.setState(prevState => ({
-      contacts: [
-          ...prevState.contacts,
-          { id: nanoid(), name: name },
-        ],
+      contacts: [...prevState.contacts, { id: nanoid(), ...contact}],
     }))
-    console.log(this.state.contacts);
-} 
+    
+  } 
 
   render() {
 
@@ -50,10 +44,4 @@ return (
     </Layout>
   );
   };
-
-  
-    
 };
-
-
-/*<PhoneForm onAddContact={this.addContact} /> */
