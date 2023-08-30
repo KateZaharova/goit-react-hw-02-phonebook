@@ -8,8 +8,13 @@ import { nanoid } from 'nanoid';
 
 export class App extends Component {
   state = {
-    contacts: [],
-    filter: "",
+    contacts: [
+      { id: 'id-1', contact:{ name: 'Rosie Simpson', phone: '459-12-56' } },
+    { id: 'id-2', contact:{ name: 'Hermione Kline', phone: '443-89-12' } },
+    { id: 'id-3', contact:{ name: 'Eden Clements', phone: '645-17-79' } },
+    { id: 'id-4', contact:{ name: 'Annie Copeland', phone: '227-91-26' } },
+  ],
+  filter: '',
   };
 
 
@@ -25,6 +30,13 @@ export class App extends Component {
     
   } 
 
+  findName = filterName => {
+    this.setState(prevState => ({
+          filter: filterName
+        })
+   );  };
+
+
   render() {
 
 return (
@@ -39,7 +51,7 @@ return (
       }}>
     <h1>React homework template</h1>
     <NewPhoneForm onAddContact={this.addContact}/>
-    <ContactList contacts={this.state.contacts} />
+    <ContactList contacts={this.state.contacts} onChangeFilter={ } />
     <GlobalStyle/>
     </Layout>
   );
