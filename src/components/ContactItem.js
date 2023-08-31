@@ -1,8 +1,15 @@
+import { ButtonDlt, Wrapper } from "./ContactItem.styled";
 
 
-
-export const ContactItem = ({ item: { name, phone } }) => {
+export const ContactItem = ({ item: { name, phone }, onDelete}) => {
     return (
-        <>{name }: {phone}</>
+        <Wrapper>
+            <>{name}: {phone}</>
+            <ButtonDlt type="button">Delete</ButtonDlt>
+        </Wrapper>
+        
+        
     )
 }
+
+/*<button onClick={() => onDelete(contacts.id)}>Delete</button>*/

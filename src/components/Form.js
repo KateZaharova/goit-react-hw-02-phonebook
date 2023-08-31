@@ -3,7 +3,7 @@ import { StyledForm, FieldInfo, ButtonAdd, ErrorMsg } from "./Form.styled";
 import * as Yup from 'yup';
 
 
-const NewPhoneFormSchema = Yup.object().shape({
+const ContactFormSchema = Yup.object().shape({
     name: Yup.string()
         .min(4, 'Too Short!')
         .required('Required'),
@@ -13,16 +13,16 @@ const NewPhoneFormSchema = Yup.object().shape({
         .required("Required"),
 });
 
-export const NewPhoneForm = ({onAddContact}) => {
+export const ContactForm = ({onAddContact}) => {
     return (
         <div>
-            <h2>Phonebook!</h2>
+            
             <Formik
                 initialValues={{
                     name: '',
                     phone: '',
                 }}
-                validationSchema={NewPhoneFormSchema}
+                validationSchema={ContactFormSchema}
                 onSubmit={(values, actions) => {
                     onAddContact(values);
                     actions.resetForm();

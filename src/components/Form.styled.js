@@ -23,7 +23,6 @@ border-radius: 8px;
 export const ButtonAdd = styled.button`
 align-self: flex-start;
 font-size: 24px;
-border: 4px solid black;
 border-radius: 8px;
 color: white;
 background-color: #08c;
