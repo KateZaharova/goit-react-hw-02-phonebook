@@ -37,11 +37,7 @@ export class App extends Component {
       contacts: prevState.contacts.filter(item => item.id !== contactId),
     }));
   };
-/*
-this.setState(prevState => ({
-      contacts: prevState.contacts.filter(contacts => contacts.id !== contactsId),
-    }));
-  */
+
 
   findName = filterName => {
     this.setState(() => ({
