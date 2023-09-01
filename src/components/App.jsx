@@ -1,9 +1,9 @@
 import { Layout } from "./Layout";
 import { GlobalStyle } from "./GlobalStyle";
 import { Component } from "react";
-import { ContactForm } from "./Form";
-import { ContactList } from "./ContactList";
-import { Filter } from "./Filter";
+import { ContactForm } from "./Form/Form";
+import { ContactList } from "./ContactList/ContactList";
+import { Filter } from "./Filter/Filter";
 import { nanoid } from 'nanoid';
 
 
@@ -30,13 +30,18 @@ export class App extends Component {
     }))
   };
  
-  /*
-  deleteContact = contactsId => {
+  
+  deleteContact = contactId => {
+    console.log(contactId);
     this.setState(prevState => ({
-      contacts: prevState.contacts.filter(contacts => contacts.id !== contactsId),
+      contacts: prevState.contacts.filter(item => item.id !== contactId),
     }));
   };
-*/
+/*
+this.setState(prevState => ({
+      contacts: prevState.contacts.filter(contacts => contacts.id !== contactsId),
+    }));
+  */
 
   findName = filterName => {
     this.setState(() => ({
@@ -73,7 +78,7 @@ return (
     <ContactForm onAddContact={this.addContact} />
     <h2>Contacts</h2>
     <Filter onChangeFilter={this.findName}/>
-    <ContactList contacts={filteredContacts} onDelete={this.deleteContact} />
+    <ContactList contacts={filteredContacts} onDelete={this.deleteContact} contactData={this.contacts} />
     <GlobalStyle/>
     </Layout>
   );
